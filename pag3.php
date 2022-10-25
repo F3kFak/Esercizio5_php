@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,33 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-            <?php
-            session_start();
-                session_destroy();
-            ?>
-            <form action="index.php" method="post">
-                <input type="submit" value="okokok">
-            </form>
+    <?php
+    session_start();
+    $ng = $_SESSION['ArrayGioco'];
+    $pg = $_SESSION['ArrayPunteggio'];
+    $maxpunteggio = null;
+    $in = 0;
+    for ($i = 0; $i < count($_SESSION['ArrayGioco']); $i++) {
+        if (max($pg) == $pg[$i]) {
+            $c = $pg[$i];
+            $in = $i;
+        }
+    }
+
+    echo "punteggio massimo: " . $maxpunteggio . " nel videogioco: " . $ng[$in];
+    for ($i = 0; $i < count($ng); $i++) {
+        if (!$maxpunteggio == $pg[$i] && !$ng[$in] == $ng[$i]) {
+            echo "nome: $ng[$i] ";
+            echo "punteggio: $pg[$i].<br>";
+        }
+    }
+    session_destroy();
+    ?>
+    <form action="index.php" method="post">
+        <input type="submit" value="okokok">
+    </form>
 </body>
+
 </html>
