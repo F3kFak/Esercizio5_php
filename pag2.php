@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="sfondo">
 
     <?php
         session_start();
@@ -25,12 +25,8 @@
                 if ($punteggiogioco > $_SESSION['ArrayPunteggio'][$i]) {
                     $_SESSION['ArrayPunteggio'][$i] = $punteggiogioco;
                     $_SESSION['o'] = true;
-                } else {
-                    
-                }
-            } else {
-                
-            }
+                } 
+            } 
         }
 
         if (!$_SESSION['o']) {

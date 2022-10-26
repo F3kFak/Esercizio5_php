@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="sfondo">
     <?php
     session_start();
     $ng = $_SESSION['ArrayGioco'];
     $pg = $_SESSION['ArrayPunteggio'];
-    $maxpunteggio = null;
+    $c = null;
     $in = 0;
     for ($i = 0; $i < count($_SESSION['ArrayGioco']); $i++) {
         if (max($pg) == $pg[$i]) {
@@ -23,12 +23,12 @@
         }
     }
 
-    echo "punteggio massimo: " . $maxpunteggio . " nel videogioco: " . $ng[$in];
+    echo "punteggio massimo: " . $c . " nel videogioco: " . $ng[$in] . "<br>";
+    echo "lista: <br>";
     for ($i = 0; $i < count($ng); $i++) {
-        if (!$maxpunteggio == $pg[$i] && !$ng[$in] == $ng[$i]) {
+
             echo "nome: $ng[$i] ";
             echo "punteggio: $pg[$i].<br>";
-        }
     }
     session_destroy();
     ?>
